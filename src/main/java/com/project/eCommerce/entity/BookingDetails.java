@@ -2,17 +2,21 @@ package com.project.eCommerce.entity;
 
 
 import com.project.eCommerce.Enum.BookedStatus;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Generated;
 
 @Data
-@Entity
+//on hold
 public class BookingDetails {
-    Long id;
-    String bookingId;
-    User user;
-    Flight flight;
-    BookedStatus bookingStatus;
-    Transaction transaction;
-    String remarks;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String bookingId;
+    private User user;
+    private Flight flight;
+    private BookedStatus bookingStatus;
+//    private Transaction transaction;
+    private String remarks;
 }
