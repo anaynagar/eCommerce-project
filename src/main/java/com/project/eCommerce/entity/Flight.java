@@ -12,7 +12,7 @@ public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String flightId;
+//    private String flightId;
     private String flightName;
     private String src;
     private String destination;
