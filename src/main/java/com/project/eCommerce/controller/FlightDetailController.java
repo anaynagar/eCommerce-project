@@ -1,6 +1,7 @@
 package com.project.eCommerce.controller;
 
 
+import com.project.eCommerce.CSTMException;
 import com.project.eCommerce.request.FlightDetailDTO;
 import com.project.eCommerce.response.FlightResponse;
 import com.project.eCommerce.service.FlightDetailService;
@@ -23,7 +24,7 @@ public class FlightDetailController {
 
     @PostMapping(value = "/add-flight-detail",consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<FlightResponse> addFlightDetail(@Valid @RequestBody List<FlightDetailDTO> request,
-                                                          @RequestParam Long flightId){
+                                                          @RequestParam Long flightId) throws CSTMException {
         logger.info("request received for creatingFlightData:{}", request);
         var response = flightDetailService.createFlightDetails(request,flightId);
         return ResponseEntity.ok(response);

@@ -20,7 +20,7 @@ import java.util.Optional;
 public class FlightDetailService {
     private final ModelMapper modelMapper;
     private final FlightRepository flightRepository;
-    public FlightResponse createFlightDetails(List<FlightDetailDTO> request, Long flightId) {
+    public FlightResponse createFlightDetails(List<FlightDetailDTO> request, Long flightId) throws CSTMException {
         Optional<Flight> flightOptional = flightRepository.findById(flightId);
         if(flightOptional.isEmpty()){
             throw new CSTMException("Flight data not found, give a valid id", HttpStatus.NOT_FOUND);
@@ -36,6 +36,6 @@ public class FlightDetailService {
         flight.setFlightDetails(flightDetailsList);
 
         flightRepository.save(flight);
-        return modelMapper.map(flight,FlightResponse.class);
+        return modelMapper.map(flight, FlightResponse.class);
     }
 }

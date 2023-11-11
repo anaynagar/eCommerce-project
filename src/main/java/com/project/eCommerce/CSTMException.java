@@ -8,13 +8,11 @@ import org.springframework.http.HttpStatus;
 @Getter
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class CSTMException extends RuntimeException{
+public class CSTMException extends Exception{
 
-    private final HttpStatus httpStatus;
 
     public CSTMException(String message, HttpStatus httpStatus) {
         super(message);
-        this.httpStatus = httpStatus;
     }
 
 }

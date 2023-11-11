@@ -3,6 +3,7 @@ package com.project.eCommerce.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -12,16 +13,13 @@ public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-//    private String flightId;
     private String flightName;
     private String src;
     private String destination;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name= "flight_id")
-    private List<FlightDetails> flightDetails;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "flight")
+    private Set<FlightDetails> flightDetails;
 
-    private Double amount;
     private boolean availabilityStatus;
     private boolean deleted;
 }

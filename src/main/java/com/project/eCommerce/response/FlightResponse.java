@@ -1,6 +1,7 @@
 package com.project.eCommerce.response;
 
 import com.project.eCommerce.entity.FlightDetails;
+import com.project.eCommerce.request.FlightDetailDTO;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
@@ -19,7 +20,7 @@ public class FlightResponse {
 
     private List<FlightDetails> flightDetails;
 
-    private Double amount;
+
     private boolean availabilityStatus;
 
 

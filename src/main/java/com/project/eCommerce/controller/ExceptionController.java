@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 
 @ControllerAdvice
 public class ExceptionController {
-    public ResponseEntity<String> handleCustomNotFoundException(CSTMException ex) {
-        return ResponseEntity.status(ex.getHttpStatus()).body(ex.getMessage());
-    }
+//    public ResponseEntity<String> handleCustomNotFoundException(CSTMException ex) {
+//        return ResponseEntity.status(ex.getHttpStatus()).body(ex.getMessage());
+//    }
 }

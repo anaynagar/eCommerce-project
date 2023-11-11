@@ -1,10 +1,6 @@
 package com.project.eCommerce.request;
 
 import com.project.eCommerce.entity.FlightDetails;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -26,10 +22,7 @@ public class FlightCreateRequest {
     private String destination;
 
     @NotEmpty
-    private List<FlightDetails> flightDetails;
-
-    @NotNull
-    private Double amount;
+    private List<FlightDetailDTO> flightDetails;
 
     private boolean availabilityStatus;
 }

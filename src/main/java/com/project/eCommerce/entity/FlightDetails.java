@@ -20,5 +20,10 @@ public class FlightDetails {
     private LocalDate departureDate;
     private  LocalTime departureTime;
     private Double durationInHrs;
+    private Double amount;
+
+    @ManyToOne
+    @JoinColumn(name = "flight_id")
+    private Flight flight;
 
 }
