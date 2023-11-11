@@ -14,28 +14,12 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
 public class FlightDetailService {
     private final ModelMapper modelMapper;
     private final FlightRepository flightRepository;
-    public FlightResponse createFlightDetails(List<FlightDetailDTO> request, Long flightId) throws CSTMException {
-        Optional<Flight> flightOptional = flightRepository.findById(flightId);
-        if(flightOptional.isEmpty()){
-            throw new CSTMException("Flight data not found, give a valid id", HttpStatus.NOT_FOUND);
-        }
 
-        Flight flight = flightOptional.get();
-
-        List<FlightDetails> flightDetailsList = flight.getFlightDetails();
-        for(var dto:request){
-            flightDetailsList.add(modelMapper.map(dto,FlightDetails.class));
-        }
-
-        flight.setFlightDetails(flightDetailsList);
-
-        flightRepository.save(flight);
-        return modelMapper.map(flight, FlightResponse.class);
-    }
 }
