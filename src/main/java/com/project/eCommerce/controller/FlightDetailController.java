@@ -22,11 +22,5 @@ public class FlightDetailController {
     private static final Logger logger = LoggerFactory.getLogger(FlightController.class);
     private final FlightDetailService flightDetailService;
 
-    @PostMapping(value = "/add-flight-detail",consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<FlightResponse> addFlightDetail(@Valid @RequestBody List<FlightDetailDTO> request,
-                                                          @RequestParam Long flightId) throws CSTMException {
-        logger.info("request received for creatingFlightData:{}", request);
-        var response = flightDetailService.createFlightDetails(request,flightId);
-        return ResponseEntity.ok(response);
-    }
+
 }
